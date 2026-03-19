@@ -1,14 +1,19 @@
 {
+  "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node server.ts"
+    "dev": "nodemon --exec tsx server.ts --ext ts"
   },
   "dependencies": {
-    "fastify": "^5.8.2"
+    "@fastify/mongodb": "^10.0.0",
+    "fastify": "^5.8.2",
+    "fastify-plugin": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
