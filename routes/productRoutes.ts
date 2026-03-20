@@ -32,7 +32,7 @@ const productSchema = {
   }
 }
 
-const products: Product[] = []
+export const products: Product[] = []
 
 const routes: FastifyPluginAsync = async (fastify) => {
   fastify.setErrorHandler((error: { validation?: Array<{ message?: string; instancePath?: string; params?: Record<string, unknown> }> }, request, reply) => {
@@ -41,7 +41,7 @@ const routes: FastifyPluginAsync = async (fastify) => {
         const p = e.params as { missingProperty?: string } | undefined
         if (p?.missingProperty) return `Missing required field: ${p.missingProperty}`
         if (e.instancePath?.includes('id') || e.message?.includes('pattern')) return 'Product ID must be a valid UUID'
-        if (e.message?.includes('exclusiveMinimum') || e.message?.includes('minimum')) return 'Price must be a positive number'
+        if (e.instancePath === '/price') return 'Price must be a positive number'
         return e.message
       })
       return reply.status(400).send({

@@ -2,16 +2,21 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --exec tsx server.ts --ext ts"
+    "dev": "nodemon --exec tsx server.ts --ext ts",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@fastify/mongodb": "^10.0.0",
+    "dotenv": "^17.3.1",
     "fastify": "^5.8.2",
     "fastify-plugin": "^5.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.14",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
