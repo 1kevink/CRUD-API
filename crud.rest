@@ -1,0 +1,17 @@
+### GET all products
+GET http://localhost:3000/api/products
+
+### GET product by id
+GET http://localhost:3000/api/products/1
+
+### POST create product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Product 3",
+  "price": 100,
+  "description": "Description 3",
+  "category": "Category 3",
+  "inStock": true
+}
